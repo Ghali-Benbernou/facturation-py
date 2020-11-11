@@ -1,0 +1,16 @@
+
+				Facture n1
+Nom : {u'nom': u'ghali', u'ville': u'mosta'}
+Date: 2016-10-05
+
+
+
+Produit: 			Quantite: 		Prix unitaire: 		Sous total: 
+
+dell inspiron 							4		65000		260000 DZD
+
+
+Total HT: 260000 DZD
+Taxe: 1 %
+Total TTC: 262600 DZD
+						TOTAL a PAYER: 262600 DZD

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ASCII'?>
+<facture id="0001" date="2016-10-05">
+  <client>amine</client>
+  <Produits>
+    <prod>
+      <nom_prod>asus</nom_prod>
+      <quantitee>2</quantitee>
+      <prix>75000</prix>
+      <Sous_total>150000</Sous_total>
+    </prod>
+  </Produits>
+  <ht>150000</ht>
+  <tva>17</tva>
+  <ttc>175500</ttc>
+</facture>

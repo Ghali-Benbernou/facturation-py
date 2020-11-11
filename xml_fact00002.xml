@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='ASCII'?>
+<facture id="00002" date="2016-10-05">
+  <client>{u'nom': u'ghali', u'ville': u'mosta'}</client>
+  <Produits>
+    <prod>
+      <nom_prod>dell inspiron </nom_prod>
+      <quantitee>2</quantitee>
+      <prix>65000</prix>
+      <Sous_total>130000</Sous_total>
+    </prod>
+  </Produits>
+  <ht>130000</ht>
+  <tva>12</tva>
+  <ttc>145600</ttc>
+</facture>
