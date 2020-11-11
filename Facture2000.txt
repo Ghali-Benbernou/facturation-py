@@ -1,0 +1,18 @@
+
+				Facture n2000
+Nom : {'nom': 'ghali', 'ville': 'mosta'}
+Date: 2020-11-11
+
+
+
+Produit: 			Quantite: 		Prix unitaire: 		Sous total: 
+
+dell inspiron 							3		65000		195000 DZD
+
+new							5		10000		50000 DZD
+
+
+Total HT: 245000 DZD
+Taxe: 19 %
+Total TTC: 291550.0 DZD
+						TOTAL a PAYER: 291550.0 DZD

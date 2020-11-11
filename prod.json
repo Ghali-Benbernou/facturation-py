@@ -1,42 +1,47 @@
 [
   {
-    "nom": "dell inspiron ", 
-    "quant": 4, 
+    "nom": "dell inspiron ",
+    "quant": 1,
     "prix": 65000
-  }, 
+  },
   {
-    "nom": "lenovo", 
-    "quant": 5, 
+    "nom": "lenovo",
+    "quant": 0,
     "prix": 75000
-  }, 
+  },
   {
-    "nom": "HP pavillon", 
-    "quant": 6, 
+    "nom": "HP pavillon",
+    "quant": 6,
     "prix": 60000
-  }, 
+  },
   {
-    "nom": "sony vaio", 
-    "quant": 2, 
+    "nom": "sony vaio",
+    "quant": 2,
     "prix": 150000
-  }, 
+  },
   {
-    "nom": "lenovo thinkpad", 
-    "quant": 7, 
+    "nom": "lenovo thinkpad",
+    "quant": 7,
     "prix": 200000
-  }, 
+  },
   {
-    "nom": "macbook", 
-    "quant": 4, 
+    "nom": "macbook",
+    "quant": 4,
     "prix": 120000
-  }, 
+  },
   {
-    "nom": "asus", 
-    "quant": 4, 
+    "nom": "asus",
+    "quant": 4,
     "prix": 75000
-  }, 
+  },
   {
-    "nom": "new", 
-    "quant": 7, 
+    "nom": "new",
+    "quant": 2,
     "prix": 10000
+  },
+  {
+    "nom": "1",
+    "prix": 2,
+    "quant": 0
   }
 ]

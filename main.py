@@ -24,42 +24,42 @@ select = ""
 
 # Menu principale du programme
 while select != 0:
-    print "\n\t\t\tMENU:\n"
-    print "1-Creation Facture "
-    print "2-Clients"
-    print "3-Produits"
-    print "4-Factures"
-    print "0-Quite\n"
+    print ("\n\t\t\tMENU:\n")
+    print ("1-Creation Facture ")
+    print ("2-Clients")
+    print ("3-Produits")
+    print ("4-Factures")
+    print ("0-Quite\n")
 
-    select = raw_input()
+    select = input()
     # 1-creation de la fact
     if select == '1':
 
         # Num de fact
-        facture_num = raw_input("Num Facture : ")
+        facture_num = input("Num Facture : ")
 
         # choix du client
         client = []
         with open("client.json", 'r') as f:
             client = json.load(f)
-        print 'Choix du client :'
-        print '1 : client existent'
-        print '2 : Ajouter Nouveau'
+        print ('Choix du client :')
+        print ('1 : client existent')
+        print ('2 : Ajouter Nouveau')
 
-        choix = raw_input("Votre choix : ")
+        choix = input("Votre choix : ")
 
         nom_cl = ""
         # client existant
         if choix == "1":
-            print "\t\t\tListe des Clients :"
-            print list_display(client)
+            print ("\t\t\tListe des Clients :")
+            print (list_display(client))
 
-            num_cl = raw_input("N du client : ")
+            num_cl = input("N du client : ")
             nom_cl = client[int(num_cl) - 1]
         # nouveau client
         else:
-            nom_cl = raw_input("Nom client : ")
-            ville_cl = raw_input("ville client : ")
+            nom_cl = input("Nom client : ")
+            ville_cl = input("ville client : ")
 
             cl = Client(nom_cl, ville_cl)
             client.append(cl.__dict__)
@@ -67,8 +67,8 @@ while select != 0:
             with open('client.json', 'w') as f:
                 json.dump(client, f, indent=2)
 
-            print cl.__dict__
-            print "client ajoute !"
+            print (cl.__dict__)
+            print ("client ajoute !")
         # coix de produits
         prod_add = []
         prod_exsi = []
@@ -76,24 +76,24 @@ while select != 0:
         with open("prod.json", 'r') as f:
             prod_exsi = json.load(f)
 
-            print "\t\t\tSaisie des produits"
-            print "1: Choisir un produit existant"
-            print "2: Nouveau produit "
+            print ("\t\t\tSaisie des produits")
+            print ("1: Choisir un produit existant")
+            print ("2: Nouveau produit ")
 
-            choix = raw_input("Votre choix : ")
+            choix = input("Votre choix : ")
         p = True
         while p:
             # produits existant
             if choix == "1":
 
-                print "\t\t\t Produits disponible"
-                print list_display(prod_exsi)
+                print ("\t\t\t Produits disponible")
+                print (list_display(prod_exsi))
 
-                num_prod = raw_input("N du produit: ")
+                num_prod = input("N du produit: ")
                 index_prod = int(num_prod) - 1
                 qty_stock = int(prod_exsi[index_prod]['quant'])
 
-                new_qty = int(raw_input("Qte: "))
+                new_qty = int(input("Qte: "))
 
                 product_name = prod_exsi[index_prod]['nom']
                 product_price = prod_exsi[index_prod]['prix']
@@ -115,10 +115,10 @@ while select != 0:
                 with open("prod.json", 'r') as f:
                     prod_exsi = json.load(f)
 
-                prod_name = raw_input("Nom Produit: ")
-                stock_qty = int(raw_input("quantite stock: "))
-                inv_qty = int(raw_input("quantite client: "))
-                prod_prix = int(raw_input("Prix de Vente: "))
+                prod_name = input("Nom Produit: ")
+                stock_qty = int(input("quantite stock: "))
+                inv_qty = int(input("quantite client: "))
+                prod_prix = int(input("Prix de Vente: "))
 
                 prod_add.append({
                     'nom': prod_name,
@@ -132,18 +132,18 @@ while select != 0:
                 with open('prod.json', 'w') as f:
                     json.dump(prod_exsi, f, indent=2)
 
-                print "Nouveau produit ajoute..."
+                print ("Nouveau produit ajoute...")
 
-            pp = raw_input("fermmer la facture ? Oui ou Non : ")
+            pp = input("fermmer la facture ? Oui ou Non : ")
             if pp in ["oui", "OUI", "Oui", "o", "O"]:
                 p = False
             else:
-                print "1: Choisir un produit existant"
-                print "2: Nouveau produit "
+                print ("1: Choisir un produit existant")
+                print ("2: Nouveau produit ")
 
-                choix = raw_input("Votre choix : ")
+                choix = input("Votre choix : ")
         # la tax
-        tax = raw_input("*taxe : ")
+        tax = input("*taxe : ")
         total_ht = 0
         x = 0
         while (x < len(prod_add)):
@@ -168,7 +168,7 @@ while select != 0:
             "\nProduit: \t\t\tQuantite: \t\tPrix unitaire: \t\tSous total: ")
         while (x < len(prod_add)):
             if x > 0:
-                print""
+                print("")
 
             total_prix.append(
                 int(prod_add[x]["prix"]) * int(prod_add[x]["quant"]))
@@ -187,7 +187,7 @@ while select != 0:
                         str(total_ttc) + " DZD")
 
         fichier_n.close()
-        print "\t\tFacture Cree ! ....."
+        print ("\t\tFacture Cree ! .....")
 
         ###########    XML     ############
 
@@ -215,8 +215,8 @@ while select != 0:
         ttc.text = str(total_ttc)
 
         file = open("xml_fact" + facture_num + ".xml", "w")
-        file.write(etree.tostring(
-            root, pretty_print=True, xml_declaration=True))
+        file.write(str(etree.tostring(
+            root, pretty_print=True, xml_declaration=True)))
         file.close()
 
         xml_string = ""
@@ -228,20 +228,20 @@ while select != 0:
 
         c = True
         while c:
-            print "\t\t\tClient:\n"
-            print "1-ajouter un client"
-            print "2-modifier un client"
-            print "3-supprimer un client"
-            print "4-liste des clients"
-            print "0-retour\n"
-            select = raw_input("selectionez une action :")
+            print ("\t\t\tClient:\n")
+            print ("1-ajouter un client")
+            print ("2-modifier un client")
+            print ("3-supprimer un client")
+            print ("4-liste des clients")
+            print ("0-retour\n")
+            select = input("selectionez une action :")
             # ajout d'un client
             if select == "1":
                 with open("client.json", 'r') as f:
                     client = json.load(f)
 
-                nom_cl = raw_input("Nom client : ")
-                ville_cl = raw_input("ville client : ")
+                nom_cl = input("Nom client : ")
+                ville_cl = input("ville client : ")
 
                 cl = Client(nom_cl, ville_cl)
                 client.append(cl.__dict__)
@@ -249,31 +249,31 @@ while select != 0:
                 with open('client.json', 'w') as f:
                     json.dump(client, f, indent=2)
 
-                print cl.__dict__
-                print "Nouveau client ajoute"
+                print (cl.__dict__)
+                print ("Nouveau client ajoute")
                 # suppresion d'un client
             if select == "3":
                 with open("client.json", 'r') as f:
                     client = json.load(f)
 
-                print "\t\tListe des Clients :"
-                print list_display(client)
+                print ("\t\tListe des Clients :")
+                print (list_display(client))
 
-                num_cl = raw_input("N du client : ")
+                num_cl = input("N du client : ")
                 nom_cl = client[int(num_cl) - 1]
 
                 client.remove(nom_cl)
 
                 with open('client.json', 'w') as f:
                     json.dump(client, f, indent=2)
-                print "Client Supprimer..."
+                print ("Client Supprimer...")
             # affichage des clients
             if select == "4":
                 with open("client.json", 'r') as f:
                     client = json.load(f)
 
-                print "\t\tListe des Clients :"
-                print list_display(client)
+                print ("\t\tListe des Clients :")
+                print (list_display(client))
 
             if select == "0":
                 c = False
@@ -281,21 +281,21 @@ while select != 0:
     elif select == '3':
         p = True
         while p:
-            print "\t\t\tPRODUITS:\n"
-            print "1-ajouter un produit"
-            print "2-modifier un produit"
-            print "3-supprimer un produit"
-            print "4-liste des produits"
-            print "0-retour\n"
-            select = raw_input("selectionez une action :")
+            print ("\t\t\tPRODUITS:\n")
+            print ("1-ajouter un produit")
+            print ("2-modifier un produit")
+            print ("3-supprimer un produit")
+            print ("4-liste des produits")
+            print ("0-retour\n")
+            select = input("selectionez une action :")
             # ajout d'un produit
             if select == "1":
                 with open("prod.json", 'r') as f:
                     prod_exsi = json.load(f)
 
-                prod_name = raw_input("Nom Produit: ")
-                stock_qty = int(raw_input("quantite stock: "))
-                prod_prix = int(raw_input("Prix de Vente: "))
+                prod_name = input("Nom Produit: ")
+                stock_qty = int(input("quantite stock: "))
+                prod_prix = int(input("Prix de Vente: "))
 
                 pr = Prod(prod_name, prod_prix, stock_qty)
                 prod_exsi.append(pr.__dict__)
@@ -303,32 +303,32 @@ while select != 0:
                 with open('prod.json', 'w') as f:
                     json.dump(prod_exsi, f, indent=2)
 
-                print "Nouveau produit ajoute..."
+                print ("Nouveau produit ajoute...")
             # Modification d'un produit
             if select == "2":
                 with open("prod.json", 'r') as f:
                     prod_exsi = json.load(f)
 
-                print "\t\t\t Produits disponible"
-                print list_display(prod_exsi)
+                print ("\t\t\t Produits disponible")
+                print (list_display(prod_exsi))
 
-                num_prod = raw_input("N du produit a modifier : ")
+                num_prod = input("N du produit a modifier : ")
                 index_prod = int(num_prod) - 1
 
-                prod_name = raw_input("Nom Produit: ")
-                stock_qty = int(raw_input("quantite stock: "))
-                prod_prix = int(raw_input("Prix de Vente: "))
+                prod_name = input("Nom Produit: ")
+                stock_qty = int(input("quantite stock: "))
+                prod_prix = int(input("Prix de Vente: "))
 
-                print "produit modifier..."
+                print ("produit modifier...")
             # suppresion d'un produit
             if select == "3":
                 with open("prod.json", 'r') as f:
                     prod_exsi = json.load(f)
 
-                print "\t\t\t Produits disponible"
-                print list_display(prod_exsi)
+                print ("\t\t\t Produits disponible")
+                print (list_display(prod_exsi))
 
-                num_prod = raw_input("N du produit: ")
+                num_prod = input("N du produit: ")
                 index_prod = prod_exsi[int(num_prod) - 1]
 
                 prod_exsi.remove(index_prod)
@@ -336,7 +336,7 @@ while select != 0:
                 with open('prod.json', 'w') as f:
                     json.dump(prod_exsi, f, indent=2)
 
-                print "Produit Supprimer..."
+                print ("Produit Supprimer...")
             if select == "4":
 
                 prod_exsi = []
@@ -344,8 +344,8 @@ while select != 0:
                 with open("prod.json", 'r') as f:
                     prod_exsi = json.load(f)
 
-                print "\t\t\t Produits disponible"
-                print list_display(prod_exsi)
+                print ("\t\t\t Produits disponible")
+                print (list_display(prod_exsi))
 
             if select == "0":
                 p = False
@@ -354,17 +354,17 @@ while select != 0:
     elif select == "4":
         f = True
         while f:
-            print "\t\t\t FACTURES :\n"
-            print "1-facture existante"
-            print "0-retour\n"
-            c = raw_input("Selectionnez une action :")
+            print ("\t\t\t FACTURES :\n")
+            print ("1-facture existante")
+            print ("0-retour\n")
+            c = input("Selectionnez une action :")
             if c == "1":
 
-                nf = raw_input("entrez le numero de facture :")
+                nf = input("entrez le numero de facture :")
 
                 xmldoc = minidom.parse('xml_fact' + nf + '.xml')
-                print xmldoc
-                print xmldoc.toxml()
+                print (xmldoc)
+                print (xmldoc.toxml())
             elif c == "0":
                 f = False
 
