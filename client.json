@@ -1,34 +1,38 @@
 [
   {
-    "nom": "ghali", 
+    "nom": "ghali",
     "ville": "mosta"
-  }, 
+  },
   {
-    "nom": "med", 
+    "nom": "med",
     "ville": "alg"
-  }, 
+  },
   {
-    "nom": "mus", 
+    "nom": "mus",
     "ville": "mosta"
-  }, 
+  },
   {
-    "nom": "omar", 
+    "nom": "omar",
     "ville": "constatine"
-  }, 
+  },
   {
-    "nom": "sofiane", 
+    "nom": "sofiane",
     "ville": "mosta"
-  }, 
+  },
   {
-    "nom": "amine", 
+    "nom": "amine",
     "ville": "mosta"
-  }, 
+  },
   {
-    "nom": "x", 
+    "nom": "x",
     "ville": "2"
-  }, 
+  },
   {
-    "nom": "brahim", 
+    "nom": "brahim",
+    "ville": "mosta"
+  },
+  {
+    "nom": "abdelkader",
     "ville": "mosta"
   }
 ]

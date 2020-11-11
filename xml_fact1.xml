@@ -1,1 +1,0 @@
-b'<?xml version=\'1.0\' encoding=\'ASCII\'?>\n<facture id="1" date="2020-11-11">\n  <client>{\'nom\': \'ghali\', \'ville\': \'mosta\'}</client>\n  <Produits>\n    <prod>\n      <nom_prod>1</nom_prod>\n      <quantitee>2</quantitee>\n      <prix>2</prix>\n      <Sous_total>4</Sous_total>\n    </prod>\n  </Produits>\n  <ht>4</ht>\n  <tva>12</tva>\n  <ttc>4.48</ttc>\n</facture>\n'

@@ -26,12 +26,12 @@
   },
   {
     "nom": "macbook",
-    "quant": 4,
+    "quant": 2,
     "prix": 120000
   },
   {
     "nom": "asus",
-    "quant": 4,
+    "quant": 3,
     "prix": 75000
   },
   {
@@ -43,5 +43,10 @@
     "nom": "1",
     "prix": 2,
     "quant": 0
+  },
+  {
+    "nom": "dell inspiron",
+    "prix": 140000,
+    "quant": 8
   }
 ]
